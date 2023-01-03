@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Daerah extends Model
 {
     use HasFactory;
+    protected $table = 'viewer';
+    protected $primaryKey = 'id';
+
+    public $timestamps = true;
 }

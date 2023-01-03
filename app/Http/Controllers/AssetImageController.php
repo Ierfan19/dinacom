@@ -49,20 +49,10 @@ class AssetImageController extends Controller
         $asset = new AssetImage();
 
         $destinationPath = public_path('uploads/' . date('Y') . '/' . date('m') . '/');
-        // $icon = $request->file('icon');
-        // $icon_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $icon->getClientOriginalExtension();
-        // $icon->move($destinationPath, $icon_name);
-
-        // $logo = $request->file('logo');
-        // $logo_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $logo->getClientOriginalExtension();
-        // $logo->move($destinationPath, $logo_name);
 
         $slide = $request->file('slide');
         $slide_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $slide->getClientOriginalExtension();
         $slide->move($destinationPath, $slide_name);
-
-        // $asset->favicon = $icon_name;
-        // $asset->logo = $logo_name;
         $asset->slide_header = $slide_name;
         $asset->save();
         return redirect('admin/asset-image');

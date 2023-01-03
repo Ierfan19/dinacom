@@ -21,14 +21,15 @@
     <link href="{{asset('/dashboard')}}/assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('/dashboard')}}/assets/css/bootstrap-extended.css" rel="stylesheet">
     <link href="{{asset('/dashboard')}}/assets/css/style.css" rel="stylesheet">
-    <link href="{{asset('/dashboard')}}/assets/css/icons.css" rel="stylesheet">
+    <link href="{{asset('/dashuser')}}/assets/css/icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
 
     <!--Theme Styles-->
     <link href="{{asset('/dashboard')}}/assets/css/dark-theme.css" rel="stylesheet" />
     <link href="{{asset('/dashboard')}}/assets/css/semi-dark.css" rel="stylesheet" />
     <link href="{{asset('/dashboard')}}/assets/css/header-colors.css" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" integrity="sha512-YFENbnqHbCRmJt5d+9lHimyEMt8LKSNTMLSaHjvsclnZGICeY/0KYEeiHwD1Ux4Tcao0h60tdcMv+0GljvWyHg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    @stack('css')
     <title>SYN-UI - Bootstrap Admin Template</title>
 </head>
 
@@ -67,12 +68,10 @@
 
         <!--start switcher-->
         <div class="switcher-body">
-            <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+            <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
                 <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
             </button>
-            <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true"
-                data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
+            <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
                 <div class="offcanvas-header border-bottom">
                     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
@@ -81,18 +80,15 @@
                     <h6 class="mb-0">Theme Variation</h6>
                     <hr>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme"
-                            value="option1" checked>
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1" checked>
                         <label class="form-check-label" for="LightTheme">Light</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme"
-                            value="option2">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
                         <label class="form-check-label" for="DarkTheme">Dark</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark"
-                            value="option3">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3">
                         <label class="form-check-label" for="SemiDark">Semi Dark</label>
                     </div>
                     <hr />
@@ -156,7 +152,9 @@
     <script src="{{asset('/dashboard')}}/assets/js/index3.js"></script>
     <!-- Main JS-->
     <script src="{{asset('/dashboard')}}/assets/js/main.js"></script>
-
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    @stack('js')
 
 </body>
 

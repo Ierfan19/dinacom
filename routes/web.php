@@ -10,8 +10,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashuserController;
+use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\ViewerController;
 use App\Http\Controllers\WisataController;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +28,10 @@ use App\Http\Controllers\WisataController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend/index');
+});
+Route::get('/user', function () {
+    return view('user/index');
 });
 Route::get('/table', function () {
     return view('dashboard/table');
@@ -44,28 +50,45 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group([''], function () {
+Route::group(['middleware' => ['auth', 'role:user']], function () {
+    Route::get('/user/produk', [DashuserController::class, 'produk']);
+    Route::get('/user/produk/tambah', [DashuserController::class, 'tambahproduk']);
+    Route::get('/user/produk/edit/{id}', [DashuserController::class, 'editproduk'])->name('user.produk.edit');
+    Route::get('/user/produk/hapus/{id}', [DashuserController::class, 'hapusproduk']);
+    Route::post('/user/produk/store', [DashuserController::class, 'storeproduk']);
+    Route::post('/user/produk/update', [DashuserController::class, 'updateproduk']);
+    Route::get('/user/profile', [DashuserController::class, 'profile']);
+    Route::post('/user/profile/edit', [DashuserController::class, 'editprofile']);
+});
+Route::group(['middleware' => ['auth', 'role:admin']], function () {
     // Route::get('/', [DashboardController::class, 'index']);
     Route::get('/chart-tahun', [DashboardController::class, 'charttahun']);
 
     Route::get('/admin', [DashboardController::class, 'index']);
-    Route::get('/wisata', [WisataController::class, 'index']);
     Route::get('/reset-viewer', [ViewerController::class, 'resetjumlah']);
 
     Route::get('/admin/produk', [ProdukController::class, 'index']);
     Route::get('/admin/produk/create', [ProdukController::class, 'create']);
     Route::post('/admin/produk/tambah', [ProdukController::class, 'store']);
-    Route::post('/admin/produk/edit', [ProdukController::class, 'update']);
+    Route::post('/admin/produk/update', [ProdukController::class, 'update']);
     Route::get('/admin/produk/edit/{id}', [ProdukController::class, 'edit']);
     Route::get('/admin/produk/hapus/{id}', [ProdukController::class, 'destroy']);
     Route::get('/admin/produk/detail/{id}', [ProdukController::class, 'show']);
 
-    Route::get('/admin/category', [CategoryController::class, 'index']);
-    Route::get('/admin/category/create', [CategoryController::class, 'create']);
-    Route::post('/admin/category/tambah', [CategoryController::class, 'store']);
-    Route::post('/admin/category/edit', [CategoryController::class, 'update']);
-    Route::get('/admin/category/edit/{id}', [CategoryController::class, 'edit']);
-    Route::get('/admin/category/hapus/{id}', [CategoryController::class, 'destroy']);
+    Route::get('/admin/wisata', [WisataController::class, 'index']);
+    Route::get('/admin/wisata/create', [WisataController::class, 'create']);
+    Route::post('/admin/wisata/tambah', [WisataController::class, 'store']);
+    Route::post('/admin/wisata/edit', [WisataController::class, 'update']);
+    Route::get('/admin/wisata/edit/{id}', [WisataController::class, 'edit']);
+    Route::get('/admin/wisata/hapus/{id}', [WisataController::class, 'destroy']);
+    Route::get('/admin/wisata/detail/{id}', [WisataController::class, 'show']);
+
+    Route::get('/admin/galery', [GaleryController::class, 'index']);
+    Route::get('/admin/galery/create', [GaleryController::class, 'create']);
+    Route::post('/admin/galery/tambah', [GaleryController::class, 'store']);
+    Route::post('/admin/galery/edit', [GaleryController::class, 'update']);
+    Route::get('/admin/galery/edit/{id}', [GaleryController::class, 'edit']);
+    Route::get('/admin/galery/hapus/{id}', [GaleryController::class, 'destroy']);
 
     Route::get('/admin/admin', [AdminController::class, 'index']);
     Route::get('/admin/admin/create', [AdminController::class, 'create']);

@@ -27,6 +27,6 @@ class CreateChartTahunsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chart_tahuns');
+        Schema::dropIfExists('chart_tahun');
     }
 }

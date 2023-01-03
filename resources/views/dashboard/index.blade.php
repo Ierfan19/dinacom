@@ -20,12 +20,9 @@
         <div class="ms-auto">
             <div class="btn-group">
                 <button type="button" class="btn btn-outline-primary">Settings</button>
-                <button type="button"
-                    class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                    data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
+                <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                        href="javascript:;">Action</a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item" href="javascript:;">Action</a>
                     <a class="dropdown-item" href="javascript:;">Another action</a>
                     <a class="dropdown-item" href="javascript:;">Something else here</a>
                     <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
@@ -356,19 +353,13 @@
                             <td>Apr 8, 2021</td>
                             <td>
                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="View detail"
-                                        aria-label="Views">
+                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views">
                                         <ion-icon name="eye-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
-                                        aria-label="Edit">
+                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit">
                                         <ion-icon name="pencil-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Delete"
-                                        aria-label="Delete">
+                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete">
                                         <ion-icon name="trash-sharp"></ion-icon>
                                     </a>
                                 </div>
@@ -392,19 +383,13 @@
                             <td>Apr 9, 2021</td>
                             <td>
                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="View detail"
-                                        aria-label="Views">
+                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views">
                                         <ion-icon name="eye-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
-                                        aria-label="Edit">
+                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit">
                                         <ion-icon name="pencil-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Delete"
-                                        aria-label="Delete">
+                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete">
                                         <ion-icon name="trash-sharp"></ion-icon>
                                     </a>
                                 </div>
@@ -428,19 +413,13 @@
                             <td>Apr 10, 2021</td>
                             <td>
                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="View detail"
-                                        aria-label="Views">
+                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views">
                                         <ion-icon name="eye-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
-                                        aria-label="Edit">
+                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit">
                                         <ion-icon name="pencil-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Delete"
-                                        aria-label="Delete">
+                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete">
                                         <ion-icon name="trash-sharp"></ion-icon>
                                     </a>
                                 </div>
@@ -464,19 +443,13 @@
                             <td>Apr 11, 2021</td>
                             <td>
                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="View detail"
-                                        aria-label="Views">
+                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views">
                                         <ion-icon name="eye-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
-                                        aria-label="Edit">
+                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit">
                                         <ion-icon name="pencil-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Delete"
-                                        aria-label="Delete">
+                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete">
                                         <ion-icon name="trash-sharp"></ion-icon>
                                     </a>
                                 </div>
@@ -500,19 +473,13 @@
                             <td>Apr 15, 2021</td>
                             <td>
                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="View detail"
-                                        aria-label="Views">
+                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views">
                                         <ion-icon name="eye-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
-                                        aria-label="Edit">
+                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit">
                                         <ion-icon name="pencil-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Delete"
-                                        aria-label="Delete">
+                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete">
                                         <ion-icon name="trash-sharp"></ion-icon>
                                     </a>
                                 </div>
@@ -536,19 +503,13 @@
                             <td>Apr 18, 2021</td>
                             <td>
                                 <div class="d-flex align-items-center gap-3 fs-6">
-                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="View detail"
-                                        aria-label="Views">
+                                    <a href="javascript:;" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="View detail" aria-label="Views">
                                         <ion-icon name="eye-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Edit info"
-                                        aria-label="Edit">
+                                    <a href="javascript:;" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit">
                                         <ion-icon name="pencil-sharp"></ion-icon>
                                     </a>
-                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip"
-                                        data-bs-placement="bottom" title="" data-bs-original-title="Delete"
-                                        aria-label="Delete">
+                                    <a href="javascript:;" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete">
                                         <ion-icon name="trash-sharp"></ion-icon>
                                     </a>
                                 </div>
