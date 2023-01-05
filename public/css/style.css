@@ -5200,6 +5200,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	padding-top: 71px;
 	padding-bottom: 68px;
 	margin-bottom: 40px;
+	background-image: url('../images/img52.jpg');
 	background-position: 50%;
 	background-size: cover;
 	min-height: 199px;
@@ -5691,12 +5692,16 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-top: -24.14213562373095px;
 	border-radius: 100%;
 	-webkit-animation-name: loader;
+	-ms-animation-name: loader;
 	animation-name: loader;
 	-webkit-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
 	-webkit-animation-timing-function: linear;
+	-ms-animation-timing-function: linear;
 	animation-timing-function: linear;
 	-webkit-animation-duration: 4s;
+	-ms-animation-duration: 4s;
 	animation-duration: 4s;
 }
 
@@ -5709,10 +5714,13 @@ aside.version-ii .subscribe-form .form-control:focus {
 	position: absolute;
 	border-radius: 50%;
 	-webkit-animation-duration: 1.5s;
+	-ms-animation-duration: 1.5s;
 	animation-duration: 1.5s;
 	-webkit-animation-iteration-count: infinite;
+	-ms-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
 	-webkit-animation-timing-function: ease;
+	-ms-animation-timing-function: ease;
 	animation-timing-function: ease;
 }
 
@@ -5722,6 +5730,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	-ms-transform: rotate(0deg);
 	transform: rotate(0deg);
 	-webkit-animation-name: rotate0;
+	-ms-animation-name: rotate0;
 	animation-name: rotate0;
 }
 
@@ -5731,6 +5740,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	-ms-transform: rotate(90deg);
 	transform: rotate(90deg);
 	-webkit-animation-name: rotate90;
+	-ms-animation-name: rotate90;
 	animation-name: rotate90;
 }
 
@@ -5740,6 +5750,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 	-webkit-animation-name: rotate45;
+	-ms-animation-name: rotate45;
 	animation-name: rotate45;
 }
 
@@ -5749,6 +5760,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	-ms-transform: rotate(135deg);
 	transform: rotate(135deg);
 	-webkit-animation-name: rotate135;
+	-ms-animation-name: rotate135;
 	animation-name: rotate135;
 }
 
@@ -5758,6 +5770,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 
@@ -5767,6 +5780,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 
@@ -5776,6 +5790,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 
@@ -5785,6 +5800,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 
@@ -5794,6 +5810,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 
@@ -5803,6 +5820,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 
@@ -5812,6 +5830,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 
@@ -5821,6 +5840,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin-left: -3px;
 	margin-top: -10px;
 	-webkit-animation-delay: 0;
+	-ms-animation-delay: 0;
 	animation-delay: 0;
 }
 

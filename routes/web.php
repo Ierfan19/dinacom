@@ -7,6 +7,6 @@ Route::get('/', function () {
     return Inertia::render('Index');
 });
 
-// Route::get('/', function(){
-//     return Inertia::render('Testing');
-// });
+Route::get('/contact-us', function(){
+    return Inertia::render('Pages/Contact-Us/Index');
+});
