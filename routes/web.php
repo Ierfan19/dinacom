@@ -15,12 +15,12 @@ use App\Http\Controllers\GaleryController;
 use App\Http\Controllers\ViewerController;
 use App\Http\Controllers\WisataController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\FrontController;
 
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Index');
-});
+Route::get('/', [FrontController::class, 'index']);
+Route::get('/wisata/{nama}', [FrontController::class, 'getWisata']);
 // Route::get('/', function () {
 //     return view('frontend/index');
 // });

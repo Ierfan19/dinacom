@@ -12,8 +12,9 @@ import img28 from '../../../../../public/images/img28.jpg'
 import img29 from '../../../../../public/images/img29.jpg'
 import adPlaceholder from '../../../../../public/images/ad-placeholder.jpg'
 import { Card } from 'react-bootstrap'
+import { Link } from '@inertiajs/inertia-react'
 
-const Posts = () => {
+const Posts = ({ wisata }) => {
     return (
         <>
             <div className="row">
@@ -47,22 +48,29 @@ const Posts = () => {
                         </ul>
                     </section>
                     <section className="posts-blocks">
-                        <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
-                            <div className="post-holder">
-                                <div className="img-holder">
-                                    <a href="single-post.html"><Card.Img src={img22} alt="image description" /></a>
-                                </div>
-                                <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                                <h2><a href="single-post.html">I get up in the morning looking for adventure.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscin elit, sed diam nonummy nibh euismod tincidunt...</p>
-                                <a href="single-post.html" className="read-more">Read more</a>
-                                <footer>
-                                    <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
-                                    <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
-                                </footer>
-                            </div>
-                        </article>
-                        <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
+                        {
+                            wisata.map((value, i) => {
+                                return <article className="post-block wow fadeInUp" data-wow-delay="0.6s" key={i}>
+                                    <div className="post-holder">
+                                        <Link href={'/wisata/' + value.nama_wisata} >
+                                            <div className="img-holder">
+                                                <a href="single-post.html"><Card.Img src={value.gambar} alt="image description" /></a>
+                                            </div>
+                                            <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
+                                            <h2><a href="single-post.html">{value.nama_wisata}</a></h2>
+                                            <p>{value.deskripsi}</p>
+                                            <a href="single-post.html" className="read-more">Read more</a>
+                                        </Link>
+                                        <footer>
+                                            <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
+                                            <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
+                                        </footer>
+                                    </div>
+                                </article>
+                            })
+                        }
+
+                        {/* <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
                             <div className="post-holder">
                                 <div className="img-holder">
                                     <a href="single-post.html"><Card.Img src={img23} alt="image description" /></a>
@@ -137,7 +145,7 @@ const Posts = () => {
                                     <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
                                 </footer>
                             </div>
-                        </article>
+                        </article> */}
                     </section>
                     <nav role="navigation" className="navigation pagination">
                         <div className="nav-links">
@@ -152,11 +160,6 @@ const Posts = () => {
                 </div>
                 <aside id="sidebar" className="col-xs-12 col-md-4 pull-left">
                     <section className="widget profile-widget version-ii hidden-sm hidden-xs wow fadeInUp" data-wow-delay="0.6s">
-                        <div className="profile-pic">
-                            <a href="#">
-                                <Card.Img src={img11} alt="John Aston" />
-                            </a>
-                        </div>
                         <h3><a href="#"><Card.Img src={img11} alt="jhon aston" /></a></h3>
                         <p>Hi, I am John Aston. Duis autem vel eum dolor in hendrerit in vulputate velit esse mole consequat, vel illum dolore eu feugiat nulla lisis at vero eros et accumsan et iusto.</p>
                         <ul className="social-networks">

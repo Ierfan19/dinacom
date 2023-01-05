@@ -7,6 +7,7 @@ use App\Models\Wisata;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Inertia\Inertia;
 
 class WisataController extends Controller
 {

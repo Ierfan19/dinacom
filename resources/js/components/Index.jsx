@@ -2,10 +2,10 @@ import React from 'react';
 import Main from './main-content/main'
 
 
-const Index = () => {
+const Index = ({ wisata }) => {
     return (
         <>
-            <Main />
+            <Main wisata={wisata} />
         </>
     );
 }
