@@ -8,7 +8,8 @@ import Posts from './child-main-content/Posts';
 import InstagramSlider from './child-main-content/InstagramSlider';
 import BodyFooter from './child-main-content/BodyFooter';
 
-const main = () => {
+const main = ({ wisata }) => {
+    console.log(wisata)
     return (
         <>
             <div className="version-ii">
@@ -18,7 +19,7 @@ const main = () => {
                         <main id="main" role="main">
                             <PostsSlider />
                             <div id="twocolumns" className="container" >
-                                <Posts />
+                                <Posts wisata={wisata} />
                             </div>
                             <InstagramSlider />
                         </main>
