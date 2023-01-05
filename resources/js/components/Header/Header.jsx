@@ -2,6 +2,7 @@ import React from 'react'
 import logo2 from '../../../../public/images/logo2.png'
 import img11 from '../../../../public/images/img11.jpg'
 import { Card } from 'react-bootstrap'
+import { Link } from '@inertiajs/inertia-react'
 
 const Header = () => {
     return (
@@ -32,6 +33,7 @@ const Header = () => {
                         <div className="row holder">
                             <div className="col-xs-3 col-sm-2">
                                 <div className="logo"><a href="home.html"><Card.Img src={logo2} alt="dot" /></a></div>
+                                <Link href='/contact-us' >Contact Us</Link>
                             </div>
                             <div className="col-xs-9 col-sm-10 nav-holder">
                                 <nav id="nav" className="navbar navbar-default">
