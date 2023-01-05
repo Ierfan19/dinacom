@@ -142,6 +142,8 @@ class DashboardController extends Controller
         $produk = Produk::where('user_id', $user)->get();
         $data['januari'] = Viewer::whereYear('created_at', '=', $year->tahun)  
             ->whereMonth('created_at', '=', 1)
+            ->where('produk_id', $produk->id)
+
             ->count();
         $data['februari'] = Viewer::whereYear('created_at', '=', $year->tahun)  
             ->whereMonth('created_at', '=', 2)
