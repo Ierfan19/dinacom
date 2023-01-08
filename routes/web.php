@@ -17,6 +17,7 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\ProdukController;
 
 use Inertia\Inertia;
+use App\Http\Controllers\EventController;
 
 Route::get('/', function () {
     return Inertia::render('Index');
@@ -54,7 +55,7 @@ Route::get('/chart-viewer-user', [DashboardController::class , 'chartvieweruser'
 
 Route::get('/home', [App\Http\Controllers\HomeController::class , 'index'])->name('home');
 
-Route::group(['middleware' => ['auth', 'role:user']], function () {
+Route::group(['middleware' => ['auth', 'can:user_role']], function () {
     Route::get('/user/produk', [DashuserController::class , 'produk']);
     Route::get('/user/produk/tambah', [DashuserController::class , 'tambahproduk']);
     Route::get('/user/produk/edit/{id}', [DashuserController::class , 'editproduk'])->name('user.produk.edit');
@@ -64,7 +65,9 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/user/profile', [DashuserController::class , 'profile']);
     Route::post('/user/profile/edit', [DashuserController::class , 'editprofile']);
 });
+
 Route::get('/admin', [DashboardController::class , 'index'])->middleware('auth');
+
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     // Route::get('/', [DashboardController::class, 'index']);
     Route::get('/chart-tahun', [DashboardController::class , 'charttahun']);
@@ -132,4 +135,14 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/about/edit/{id}', [AboutController::class , 'edit']);
     Route::get('/category-update', [CategoryController::class , 'updateEn']);
     Route::get('/Produk-update', [ProdukController::class , 'updateEn']);
+});
+
+
+Route::group(['middleware' => ['auth', 'role:pengurus_wisata']], function () {
+
+    Route::get('/user/event', [EventController::class , 'index']);
+    Route::get('/user/event/tambah', [EventController::class , 'create']);
+    Route::get('/user/event/edit/{id}', [EventController::class , 'edit']);
+    Route::post('/user/event/store', [EventController::class , 'store']);
+    Route::post('/user/event/update', [EventController::class , 'update']);
 });

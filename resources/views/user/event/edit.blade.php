@@ -1,84 +1,46 @@
-@extends('user.layout.main')
-@section('content')
 
-<div class="page-content">
-    <!--end row-->
-    <div class="card radius-10">
-        <div class="card-body">
-
-            <div class="row">
-                <div class="col-xl-9 mx-auto">
-                    <!-- <h6 class="mb-0 text-uppercase">Tambah Produk</h6> -->
-                    <hr />
-                    <div class="card border-top border-0 border-4 border-info">
-                        <div class="card-body">
-                            <div class="border p-4 rounded">
-                                <div class="card-title d-flex align-items-center">
-                                    <div><i class="bx bxs-user me-1 font-22 text-info"></i>
-                                    </div>
-                                    <h5 class="mb-0 text-info">Edit Produk</h5>
-                                </div>
-                                <hr />
-                                <form action="{{url('user/produk/update')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{url('user/event/update')}}" method="post" enctype="multipart/form-data">
                                     {{csrf_field()}}
-                                    <input type="hidden" name="id" id="id" value="{{$produk->id}}">
                                     <div class="row mb-3">
-                                        <label for="nama" class="col-sm-3 col-form-label">Nama Produk</label>
+                                        <input type="hidden" name="id" value="{{$event->id}}">
+                                        <label for="nama" class="col-sm-3 col-form-label">Nama Event</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="nama" value="{{$produk->nama}}" class="form-control" id="nama" placeholder="Enter Your Name">
+                                            <input type="text" value="{{$event->nama}}" name="nama" class="form-control" id="nama">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="deskripsi" class="col-sm-3 col-form-label">deskripsi Produk</label>
+                                        <label for="deskripsi" class="col-sm-3 col-form-label">Keterangan Event</label>
                                         <div class="col-sm-9">
-                                            <textarea name="deskripsi" id="deskripsi" cols="30" rows="10">{{$produk->deskripsi}}</textarea>
-                                        </div>
+                                            <input type="text" value="{{$event->keterangan}}" name="keterangan" class="form-control" id="keterangan">
+                                       </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="contact" class="col-sm-3 col-form-label">No Telp</label>
+                                        <label for="contact" class="col-sm-3 col-form-label">Foto</label>
                                         <div class="col-sm-9">
-                                            <input type="number" name="contact" value="{{$produk->contact}}" class="form-control" id="contact" placeholder="Phone No">
-                                        </div>
+                                        
+                                            <input class="form-control" id="gambar" onchange="document.getElementById('showimg').src = window.URL.createObjectURL(this.files[0]);" type="file" name="gambar">
+                                            <img src="{{asset('/')}}{{$event->gambar}}" alt="" width="200" id="showimg"> </div>
                                     </div>
                                     <div class="row mb-3">
-                                        <label for="alamat" class="col-sm-3 col-form-label">Alamat Penjualan</label>
+                                        <label for="tgl" class="col-sm-3 col-form-label">Tanggal Event</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="alamat" value="{{$produk->alamat}}" class="form-control" id="alamat" placeholder="Alamat Penjualan">
+                                            <input type="date" value="{{$event->tgl}}" name="tgl" class="form-control" id="tgl" placeholder="tgl Penjualan">
                                         </div>
                                     </div>
                                     <input type="hidden" name="user_id" value="{{Auth()->User()->id}}">
-                                    <div class="row mb-3">
-                                        <label for="gambar" class="col-sm-3 col-form-label">Gambar</label>
+                                    <div class="row">
+                                        <label for="gambar" class="col-sm-3 col-form-label">Wisata</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" id="gambar" onchange="document.getElementById('showimg').src = window.URL.createObjectURL(this.files[0]);" type="file" name="gambar">
-                                            <img src="{{asset('/')}}{{$produk->gambar}}" alt="" width="200" id="showimg">
+                                            <select name="wisata_id" class="form-select" id="inputGroupSelect01">
+                                                @foreach($wisata as$row)
+                                              <option value="{{$row->id}}" {{$event->wisata_id == $row->id ? 'selected' : ''}}>{{$row->nama}}</option>
+                                              @endforeach
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <label class="col-sm-3 col-form-label"></label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-4">
                                             <button type="submit" class="btn btn-info px-5">Kirim</button>
                                         </div>
                                     </div>
                                 </form>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-
-@push('js')
-<script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
-<script>
-    CKEDITOR.replace('deskripsi');
-
-   
-
-</script>
-
-@endpush

@@ -21,7 +21,6 @@ class CreateEventsTable extends Migration
             $table->string('tgl');
             $table->string('tgl_end');
             $table->string('wisata_id')->nullable();
-            $table->string('produk_id')->nullable();
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HasRole;
 use App\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class AdminController extends Controller
 {
@@ -97,7 +98,14 @@ class AdminController extends Controller
         // dd($request->all());
         $role = Role::find($request->role);
         HasRole::where('model_id', $request->id)->delete();
-        User::find($request->id)->assignRole($role->name);
+        if ($request->role == 1) {
+            User::find($request->id)->assignRole($role->name);
+        }
+        else {
+
+            $permission = Permission::create(['name' => 'user_role']);
+            User::find($request->id)->assignRole($role->name)->givePermissionTo($permission);
+        }
         return redirect('admin/user');
 
     }

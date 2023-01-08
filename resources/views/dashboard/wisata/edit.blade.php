@@ -1,5 +1,9 @@
 @extends('dashboard.layout.main')
+@push('css')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endpush
 @section('content')
+
 <div class="page-content">
 
     <!--start breadcrumb-->
@@ -61,10 +65,15 @@
                                 <input class="form-control" id="gambar" onchange="document.getElementById('showimg').src = window.URL.createObjectURL(this.files[0]);" type="file" name="gambar">
                                 <img src="{{asset('/')}}{{$wisata->gambar}}" alt="" width="200" id="showimg">
                             </div>
-                            <!-- <div class="col-12">
-                                <label class="form-label">Gambar</label>
-                                <input type="text" class="form-control">
-                            </div> -->
+                            <div class="form-group">
+                                <label class="form-label" for="user">Pengurus</label>
+                                <select class="js-example-basic-multiple form-control" name="user_id" multiple="multiple">
+                                    @foreach($user as $row)
+                                    <option value="{{$row->id}}"{{$user1->id == $row->id ? 'selected' : ''}}>{{$row->name}}</option>
+@endforeach
+                                  </select>
+                            </div>
+                            
                             <div class="col-12">
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-primary">Send</button>
@@ -84,8 +93,12 @@
 </div>
 @endsection
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
 <script>
     CKEDITOR.replace('deskripsi');
+    $(document).ready(function() {
+    $('.js-example-basic-multiple').select2();
+});
 </script>
 @endpush

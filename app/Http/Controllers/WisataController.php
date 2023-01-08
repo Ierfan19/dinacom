@@ -8,6 +8,8 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Helper\UploadGambar;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class WisataController extends Controller
 {
@@ -90,7 +92,21 @@ class WisataController extends Controller
      */
     public function edit($id)
     {
-        $data['wisata'] = Wisata::find($id);
+        $wisata = Wisata::find($id);
+        // dd($wisata->user_id);
+        $data['wisata'] = $wisata;
+        if ($wisata->user_id != '') {
+
+            $data['user1'] = User::find($wisata->user_id);
+        }
+        else {
+
+            $data['user1'] = User::find(1);
+        }
+        $data['user'] = DB::table('model_has_roles')
+            ->join('users', 'model_has_roles.model_id', 'users.id')
+            ->where('model_has_roles.role_id', 3)
+            ->get();
         return view('dashboard/wisata/edit', $data);
     }
 
@@ -107,13 +123,10 @@ class WisataController extends Controller
         $wisata->nama = $request->nama;
         $wisata->deskripsi = $request->deskripsi;
         $wisata->alamat = $request->alamat;
+        $wisata->user_id = $request->user_id;
 
         if ($request->file('gambar')) {
             $image_path = UploadGambar::hapus($wisata->gambar);
-            // $gambar = $request->file('gambar');
-            // $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
-            // $destinationPath = storage_path('uploads/' . date('Y') . '/' . date('m') . '/');
-            // $gambar->move($destinationPath, $gambar_name);
             $wisata->gambar = UploadGambar::simpan($request->file('gambar'));
         }
         $wisata->update();

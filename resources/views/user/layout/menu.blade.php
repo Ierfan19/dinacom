@@ -32,6 +32,15 @@
                     <div class="menu-title">Profile</div>
                 </a>
             </li>
+            @if(\Auth::user()->hasRole('pengurus_wisata'))
+            <li>
+                <a href="{{url('/user/event')}}">
+                    <div class="parent-icon"><i class='bx bx-book-bookmark'></i>
+                    </div>
+                    <div class="menu-title">Event</div>
+                </a>
+            </li>
+            @endif
         </ul>
     </nav>
 </div>

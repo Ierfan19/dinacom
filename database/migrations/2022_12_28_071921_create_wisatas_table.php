@@ -20,6 +20,7 @@ class CreateWisatasTable extends Migration
             $table->text('deskripsi');
             $table->string('alamat');
             $table->string('viewer');
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }
