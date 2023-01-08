@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
-use App\Helper\UploadGambar;
+use App\Models\HasRole;
+use App\Models\Role;
 
-class ProdukController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,16 +25,17 @@ class ProdukController extends Controller
         $cari = $request->get('cari');
         if ($cari == '') {
             $data['paginate'] = $paginate;
-            $data['produk'] = Produk::orderby('created_at', 'desc')->paginate(10);
+            $data['user'] = User::where('id', '!=', Auth()->User()->id)->paginate($paginate);
         }
         else {
             $data['paginate'] = $paginate;
 
-            $data['produk'] = Produk::orderby('created_at', 'desc')->where('nama', 'like', '%' . $cari . '%')
-                ->orwhere('alamat', 'like', '%' . $cari . '%')
+            $data['user'] = User::where('id', '!=', 1)->where('name', 'like', '%' . $cari . '%')
+                ->orwhere('email', 'like', '%' . $cari . '%')
+                ->orwhere('no_telp', 'like', '%' . $cari . '%')
                 ->paginate($paginate);
         }
-        return view('dashboard/produk/index', $data);
+        return view('dashboard/user/index', $data);
     }
 
     /**
@@ -61,10 +62,10 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Produk $produk)
+    public function show(Admin $admin)
     {
     //
     }
@@ -72,42 +73,50 @@ class ProdukController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $data['produk'] = Produk::find($id);
-        return view('dashboard/produk/edit', $data);
+        $data['user'] = User::find($id);
+        $data['hasrole'] = HasRole::where('model_id', $id)->first();
+        // dd($data['hasrole']);
+        $data['role'] = Role::all();
+        return view('dashboard.user.edit', $data);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $produk = Produk::find($request->id);
-        $produk->status = $request->status;
-        $produk->update();
-        return redirect('admin/produk');
+        // dd($request->all());
+        $role = Role::find($request->role);
+        HasRole::where('model_id', $request->id)->delete();
+        User::find($request->id)->assignRole($role->name);
+        return redirect('admin/user');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Produk  $produk
+     * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $produk = Produk::find($id);
-        $img1 = UploadGambar::hapus($produk->gambar);
-        $produk->delete();
-
-        return redirect('admin/produk');
+        $user = User::find($id);
+        $user->delete();
+        $produk = Produk::where('user_id', $id)->exists();
+        $produk2 = Produk::where('user_id', $id)->get();
+        if ($produk == true) {
+            $produk2->delete();
+        }
+        return redirect('admin/user');
     }
 }

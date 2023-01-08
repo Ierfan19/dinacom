@@ -11,6 +11,7 @@ use App\Models\Viewer;
 use Illuminate\Foundation\Auth\User;
 use App\Models\Wisata;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -21,11 +22,19 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $data['produk'] = Produk::count();
-        $data['wisata'] = Wisata::count();
-        $data['user'] = User::count();
-        $data['tahun'] = ChartTahun::first();
-        return view('dashboard.index', $data);
+        $user = Auth::user();
+        // dd($user->hasRole('admin'));
+        if ($user->hasRole('admin')) {
+
+            $data['produk'] = Produk::count();
+            $data['wisata'] = Wisata::count();
+            $data['user'] = User::count();
+            $data['tahun'] = ChartTahun::first();
+            return view('dashboard.index', $data);
+        }
+        else {
+            return redirect('/user');
+        }
     }
     function chartviewer()
     {
@@ -140,42 +149,42 @@ class DashboardController extends Controller
         $year = ChartTahun::first();
         $user = Auth()->User()->id;
         $produk = Produk::where('user_id', $user)->get();
-        $data['januari'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['januari'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 1)
             ->where('produk_id', $produk->id)
 
             ->count();
-        $data['februari'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['februari'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 2)
             ->count();
-        $data['maret'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['maret'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 3)
             ->count();
-        $data['april'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['april'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 4)
             ->count();
-        $data['mei'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['mei'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 5)
             ->count();
-        $data['juni'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['juni'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 6)
             ->count();
-        $data['juli'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['juli'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 7)
             ->count();
-        $data['agustus'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['agustus'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 8)
             ->count();
-        $data['september'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['september'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 9)
             ->count();
-        $data['oktober'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['oktober'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 10)
             ->count();
-        $data['november'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['november'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 11)
             ->count();
-        $data['desember'] = Viewer::whereYear('created_at', '=', $year->tahun)  
+        $data['desember'] = Viewer::whereYear('created_at', '=', $year->tahun)
             ->whereMonth('created_at', '=', 12)
             ->count();
         return Response($data);
@@ -184,64 +193,64 @@ class DashboardController extends Controller
     {
     //
     }
-function charttahunuser()
-
+    function charttahunuser()
+    
 {
-    $year = ChartTahun::first();
-    $user = Auth()->User()->id;
-    $produk = Produk::where('user_id', $user)->get();
+        $year = ChartTahun::first();
+        $user = Auth()->User()->id;
+        $produk = Produk::where('user_id', $user)->get();
 
-    $data['januari'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 1)
-    ->count();
-$data['februari'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 2)
-    ->count();
-$data['maret'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 3)
-    ->count();
-$data['april'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 4)
-    ->count();
-$data['mei'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 5)
-    ->count();
-$data['juni'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 6)
-    ->count();
-$data['juli'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 7)
-    ->count();
-$data['agustus'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 8)
-    ->count();
-$data['september'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 9)
-    ->count();
-$data['oktober'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 10)
-    ->count();
-$data['november'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 11)
-    ->count();
-$data['desember'] = Viewer::whereYear('created_at', '=', $year->tahun)
-    ->where('produk_id', '!=', '')
-    ->whereMonth('created_at', '=', 12)
-    ->count();
+        $data['januari'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 1)
+            ->count();
+        $data['februari'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 2)
+            ->count();
+        $data['maret'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 3)
+            ->count();
+        $data['april'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 4)
+            ->count();
+        $data['mei'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 5)
+            ->count();
+        $data['juni'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 6)
+            ->count();
+        $data['juli'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 7)
+            ->count();
+        $data['agustus'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 8)
+            ->count();
+        $data['september'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 9)
+            ->count();
+        $data['oktober'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 10)
+            ->count();
+        $data['november'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 11)
+            ->count();
+        $data['desember'] = Viewer::whereYear('created_at', '=', $year->tahun)
+            ->where('produk_id', '!=', '')
+            ->whereMonth('created_at', '=', 12)
+            ->count();
 
-    return Response($data);
-}
+        return Response($data);
+    }
     /**
      * Store a newly created resource in storage.
      *

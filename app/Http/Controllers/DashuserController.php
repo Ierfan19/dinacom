@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use App\Helper\UploadGambar;
 
 class DashuserController extends Controller
 {
@@ -44,11 +45,11 @@ class DashuserController extends Controller
         $produk->user_id = $request->user_id;
         $produk->status = 0;
 
-        $destinationPath = public_path('uploads/' . date('Y') . '/' . date('m') . '/');
-        $gambar = $request->file('gambar');
-        $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
-        $gambar->move($destinationPath, $gambar_name);
-        $produk->gambar = $gambar_name;
+        // $destinationPath = storage_path('uploads/' . date('Y') . '/' . date('m') . '/');
+        // $gambar = $request->file('gambar');
+        // $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
+        // $gambar->move($destinationPath, $gambar_name);
+        $produk->gambar = UploadGambar::simpan($request->file('gambar'));
         $produk->save();
         return redirect('user/produk');
     }
@@ -62,15 +63,12 @@ class DashuserController extends Controller
         $produk->user_id = $request->user_id;
         $produk->status = 0;
         if ($request->file('gambar')) {
-            $image_path = public_path($produk->gambar);
-            if (File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $gambar = $request->file('gambar');
-            $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
-            $destinationPath = public_path('uploads/' . date('Y') . '/' . date('m') . '/');
-            $gambar->move($destinationPath, $gambar_name);
-            $produk->gambar = $gambar_name;
+            $image_path = UploadGambar::hapus($produk->gambar);
+            // $gambar = $request->file('gambar');
+            // $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
+            // $destinationPath = storage_path('uploads/' . date('Y') . '/' . date('m') . '/');
+            // $gambar->move($destinationPath, $gambar_name);
+            $produk->gambar = UploadGambar::simpan($request->file('gambar'));
         }
         $produk->save();
         return redirect('user/produk');
@@ -82,10 +80,7 @@ class DashuserController extends Controller
         if ($produk->user_id != Auth()->User()->id) {
             return 'Kesalahan';
         }
-        $img1 = public_path($produk->gambar);
-        if (File::exists($img1)) {
-            File::delete($img1);
-        }
+        $img1 = UploadGambar::hapus($produk->gambar);
         $produk->delete();
 
         return redirect('user/produk');

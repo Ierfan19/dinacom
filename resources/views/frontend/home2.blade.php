@@ -11,19 +11,19 @@
 	<!-- include the site stylesheet -->
 	<link href='https://fonts.googleapis.com/css?family=Merriweather:300,400,700%7CPoppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
 	<!-- include the site stylesheet -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="{{asset('/frontend')}}/css/font-awesome.min.css">
 	<!-- include the site stylesheet -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="{{asset('/frontend')}}/css/bootstrap.css">
 	<!-- include the site stylesheet -->
-	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="{{asset('/frontend')}}/css/animate.css">
 	<!-- include the site stylesheet -->
-	<link rel="stylesheet" href="css/slick.css">
+	<link rel="stylesheet" href="{{asset('/frontend')}}/css/slick.css">
 	<!-- include the site stylesheet -->
 	<link rel="stylesheet" href="style.css">
 	<!-- include the site stylesheet -->
-	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="{{asset('/frontend')}}/css/responsive.css">
 	<!-- include the site stylesheet -->
-	<link rel="stylesheet" href="css/colors.css">
+	<link rel="stylesheet" href="{{asset('/frontend')}}/css/colors.css">
 </head>
 <body class="version-ii">
 	<div class="loader-holder">
@@ -222,6 +222,7 @@
 				</nav>
 				<!-- Side Nav of the page end -->
 			</header>
+			<header id="header" class="version-ii" style="height: 155px;"><div class="container"><div class="row top-bar"><nav class="col-xs-12 col-sm-6 policy-nav"><ul><li><a href="#">sitemap</a></li><li><a href="#">privacy policy</a></li><li><a href="#">support</a></li></ul></nav><div class="col-xs-12 col-sm-6 pull-right hidden-xs"><ul class="social-networks"><li><a href="#"><span class="ico-facebook"></span></a></li><li><a href="#"><span class="ico-twitter"></span></a></li><li><a href="#"><span class="ico-google-plus"></span></a></li><li><a href="#"><span class="ico-linkedin"></span></a></li><li><a href="#"><span class="ico-pinterest"></span></a></li></ul></div></div></div><div class="stick-holder"><div class="container"><div class="row holder"><div class="col-xs-3 col-sm-2"><div class="logo"><a href="home.html"><img class="card-img" src="/images/logo2.png?cbf45e88ff9a07e0bb57ab34a5c90f63" alt="dot"></a></div></div><div class="col-xs-9 col-sm-10 nav-holder"><nav id="nav" class="navbar navbar-default"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><a href="#" class="pull-right icon-menu"><span class="ico-menu"></span></a><div class="navbar-collapse collapse in" id="bs-example-navbar-collapse-1" aria-expanded="true" style=""><ul class="nav navbar-nav navbar-right"><li class="active" data-drop="drop-right"><a href="home.html">Home</a><div class="drop"><ul><li><a href="home.html">Home-V1</a><div class="drop"><ul><li><a href="home-leftsidebar.html">left sidebar</a></li><li><a href="home-nosidebar.html">No sidebar</a></li></ul></div></li><li><a href="home-v2.html">Home-V2</a><div class="drop"><ul><li><a href="home-v2-rightsidebar.html">Right sidebar</a></li><li><a href="home-v2-nosidebar.html">No sidebar</a></li></ul></div></li><li><a href="home-v3.html">Home-V3</a><div class="drop"><ul><li><a href="home-v3-leftsidebar.html">left sidebar</a></li><li><a href="home-v3-rightsidebar.html">right sidebar</a></li></ul></div></li></ul></div></li><li data-drop="drop-right"><a href="single-post.html">blog</a><div class="drop"><ul><li><a href="single-post.html">detail-v1</a><div class="drop"><ul><li><a href="post-left-sidebar-v1.html">left sidebar</a></li><li><a href="post-detail-nosidebar.html">nosidebar</a></li><li><a href="post-detail-audio-v1.html">post detail audio</a></li><li><a href="post-detail-slider-v1.html">post detail slider</a></li><li><a href="post-detail-video-v1.html">post detail video</a></li></ul></div></li><li><a href="single-postv2.html">detail-v2</a><div class="drop"><ul><li><a href="post-left-sidebar-v2.html">left sidebar</a></li><li><a href="right-sidebar-v2.html">right sidebar</a></li><li><a href="post-detail-audio-v2.html">post detail audio</a></li><li><a href="post-detail-slider-v2.html">post detail slider</a></li><li><a href="post-detail-video-v2.html">post detail video</a></li></ul></div></li></ul></div></li><li data-drop="drop-right"><a href="archive.html">archive</a></li><li><a href="#">Pages</a><div class="drop"><ul><li><a href="404-error.html">404 error</a></li><li><a href="coming-soon.html">coming soon</a></li></ul></div></li><li><a href="#">Shortcodes</a></li><li><a href="contact-us.html">Contact</a></li></ul></div></nav></div></div></div></div><nav class="side-nav"><a href="#" class="close"><i class="fa fa-times"></i></a><h2>About me</h2><section class="widget profile-widget"><div class="profile-pic"><a href="#"><img class="card-img" src="/images/img11.jpg?c239b1a7616f2ccc8fa406d6f37d46e3" alt="John Aston"></a></div><h3><a href="#">John Aston</a></h3><p>Hi, I am John Aston. Duis autem vel eum dolor in hendrerit in vulputate velit esse mole consequat, vel illum dolore eu feugiat nulla lisis at vero eros et accumsan et iusto.</p><ul class="social-networks"><li><a href="#"><span class="icon ico-facebook"></span></a></li><li><a href="#"><span class="icon ico-twitter"></span></a></li><li><a href="#"><span class="icon ico-google-plus"></span></a></li><li><a href="#"><span class="icon ico-linkedin"></span></a></li><li><a href="#"><span class="icon ico-pinterest"></span></a></li></ul></section></nav></header>
 			<!-- Header of the page end -->
 			<!-- Main of the page -->
 			<main id="main" role="main">
@@ -710,11 +711,11 @@
 		</div>
 	</div>
 	<!-- include jQuery -->
-	<script src="js/jquery.js"></script>
+	<script src="{{asset('/frontend')}}/js/jquery.js"></script>
 	<!-- include jQuery -->
-    <script src="js/plugins.js"></script>
+    <script src="{{asset('/frontend')}}/js/plugins.js"></script>
     <!-- include jQuery -->
-    <script src="js/jquery.main.js"></script>
+    <script src="{{asset('/frontend')}}/js/jquery.main.js"></script>
 </body>
 
 <!-- Mirrored from htmlbeans.com/html/dot/home-v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 29 Dec 2022 14:41:26 GMT -->

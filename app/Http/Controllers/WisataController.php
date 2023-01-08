@@ -7,6 +7,7 @@ use App\Models\Wisata;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Helper\UploadGambar;
 
 class WisataController extends Controller
 {
@@ -25,7 +26,8 @@ class WisataController extends Controller
         if ($cari == '') {
             $data['paginate'] = $paginate;
             $data['wisata'] = Wisata::paginate($paginate);
-        } else {
+        }
+        else {
             $data['paginate'] = $paginate;
 
             $data['wisata'] = Wisata::where('nama', 'like', '%' . $cari . '%')
@@ -57,11 +59,11 @@ class WisataController extends Controller
         $wisata->nama = $request->nama;
         $wisata->deskripsi = $request->deskripsi;
 
-        $destinationPath = public_path('uploads/' . date('Y') . '/' . date('m') . '/');
-        $gambar = $request->file('gambar');
-        $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
-        $gambar->move($destinationPath, $gambar_name);
-        $wisata->gambar = $gambar_name;
+        // $destinationPath = storage_path('uploads/' . date('Y') . '/' . date('m') . '/');
+        // $gambar = $request->file('gambar');
+        // $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
+        // $gambar->move($destinationPath, $gambar_name);
+        $wisata->gambar = UploadGambar::simpan($request->file('gambar'));
         $wisata->created_at = Carbon::now('Asia/Jakarta');
         $wisata->alamat = $request->alamat;
         $wisata->viewer = 0;
@@ -77,7 +79,7 @@ class WisataController extends Controller
      */
     public function show(Wisata $wisata)
     {
-        //
+    //
     }
 
     /**
@@ -107,15 +109,12 @@ class WisataController extends Controller
         $wisata->alamat = $request->alamat;
 
         if ($request->file('gambar')) {
-            $image_path = public_path($wisata->gambar);
-            if (File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $gambar = $request->file('gambar');
-            $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
-            $destinationPath = public_path('uploads/' . date('Y') . '/' . date('m') . '/');
-            $gambar->move($destinationPath, $gambar_name);
-            $wisata->gambar = $gambar_name;
+            $image_path = UploadGambar::hapus($wisata->gambar);
+            // $gambar = $request->file('gambar');
+            // $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
+            // $destinationPath = storage_path('uploads/' . date('Y') . '/' . date('m') . '/');
+            // $gambar->move($destinationPath, $gambar_name);
+            $wisata->gambar = UploadGambar::simpan($request->file('gambar'));
         }
         $wisata->update();
         return redirect('admin/wisata');
@@ -131,10 +130,8 @@ class WisataController extends Controller
     {
 
         $wisata = Wisata::find($id);
-        $img1 = public_path($wisata->gambar);
-        if (File::exists($img1)) {
-            File::delete($img1);
-        }
+        $img1 = UploadGambar::hapus($wisata->gambar);
+
         $wisata->delete();
 
         return redirect('admin/wisata');

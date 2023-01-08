@@ -128,7 +128,7 @@
                                                             <a href="javascript:;" class="btn btn-primary btn-ecomm"> <i class="bx bxs-cart-add"></i>Detail</a>
                                                             <a href="{{('wisata/edit')}}/{{$row->id}}" class="btn btn-light btn-ecomm">
                                                                 <i class='bx bx-pen'></i>Edit</a>
-                                                            <a href="{{('wisata/hapus')}}/{{$row->id}}" class="btn btn-danger">
+                                                            <a onclick="return confirm('Apa Anda Yakin??')" href="{{('wisata/hapus')}}/{{$row->id}}" class="btn btn-danger">
                                                                 <i class='bx bx-trash'></i>Hapus</a>
                                                         </div>
                                                     </div>

@@ -68,8 +68,8 @@
                             @foreach($galery as $row)
                             <tr>
                                 <th scope="row">{{$loop->iteration}}</th>
-                                <td><img src="{{asset('/')}}{{$row->gambar}}" width="200" style="object-fit: cover;height:200px;" alt=""></td>
-                                <td>{{$row->nama}}</td>
+                                <td><img src="{{url('/')}}/{{$row->gambar}}" width="200" style="object-fit: cover;height:200px;" alt=""></td>
+                                <td>{{$row->gambar}}</td>
                                 <td>
                                     {{$row->tgl}}
                                 </td>

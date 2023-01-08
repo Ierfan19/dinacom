@@ -30,7 +30,7 @@ Route::get('/user', function () {
     return view('user/index');
 });
 Route::get('/sales', function () {
-    return view('user/sales');
+    return view('frontend/home2');
 });
 Route::get('/table', function () {
     return view('dashboard/table');
@@ -64,13 +64,13 @@ Route::group(['middleware' => ['auth', 'role:user']], function () {
     Route::get('/user/profile', [DashuserController::class , 'profile']);
     Route::post('/user/profile/edit', [DashuserController::class , 'editprofile']);
 });
+Route::get('/admin', [DashboardController::class , 'index'])->middleware('auth');
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
     // Route::get('/', [DashboardController::class, 'index']);
     Route::get('/chart-tahun', [DashboardController::class , 'charttahun']);
 
     Route::post('/edit-chart-tahun/{id}', [DashboardController::class , 'editChartTahun']);
 
-    Route::get('/admin', [DashboardController::class , 'index']);
     Route::get('/reset-viewer', [ViewerController::class , 'resetjumlah']);
 
     Route::get('/admin/produk', [ProdukController::class , 'index']);
@@ -96,12 +96,12 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/galery/edit/{id}', [GaleryController::class , 'edit']);
     Route::get('/admin/galery/hapus/{id}', [GaleryController::class , 'destroy']);
 
-    Route::get('/admin/admin', [AdminController::class , 'index']);
-    Route::get('/admin/admin/create', [AdminController::class , 'create']);
-    Route::post('/admin/admin/tambah', [AdminController::class , 'store']);
-    Route::post('/admin/admin/edit', [AdminController::class , 'update']);
-    Route::get('/admin/admin/edit/{id}', [AdminController::class , 'edit']);
-    Route::get('/admin/admin/hapus/{id}', [AdminController::class , 'destroy']);
+    Route::get('/admin/user', [AdminController::class , 'index']);
+    Route::get('/admin/user/create', [AdminController::class , 'create']);
+    Route::post('/admin/user/tambah', [AdminController::class , 'store']);
+    Route::post('/admin/user/update', [AdminController::class , 'update']);
+    Route::get('/admin/user/edit/{id}', [AdminController::class , 'edit']);
+    Route::get('/admin/user/hapus/{id}', [AdminController::class , 'destroy']);
 
     Route::get('/admin/comment', [CommentController::class , 'index']);
     Route::get('/admin/comment/create', [CommentController::class , 'create']);

@@ -14,19 +14,23 @@
     <ul class="metismenu" id="menu">
 
         <li> <a href="{{url('/admin')}}">
-                <ion-icon name="ellipse-outline"></ion-icon>Dashboard
+                <ion-icon class="me-2" name="tv-outline"></ion-icon>Dashboard
             </a>
         </li>
         <li> <a href="{{url('/admin/wisata')}}">
-                <ion-icon name="ellipse-outline"></ion-icon>Wisata
+                <ion-icon class="me-2" name="trail-sign-outline"></ion-icon>Wisata
             </a>
         </li>
         <li> <a href="{{url('/admin/produk')}}">
-                <ion-icon name="ellipse-outline"></ion-icon>Produk
+                <ion-icon class="me-2" name="file-tray-stacked-outline"></ion-icon>Produk
             </a>
         </li>
         <li> <a href="{{url('/admin/galery')}}">
-                <ion-icon name="ellipse-outline"></ion-icon>Galery
+                <ion-icon class="me-2" name="aperture-outline"></ion-icon>Galery
+            </a>
+        </li>
+        <li> <a href="{{url('/admin/user')}}">
+                <ion-icon class="me-2" name="people-outline"></ion-icon>User
             </a>
         </li>
     </ul>

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use App\Helper\UploadGambar;
+use Illuminate\Support\Facades\Storage;
 
 class GaleryController extends Controller
 {
@@ -64,12 +66,26 @@ class GaleryController extends Controller
     {
         $galery = new Galery();
         $galery->nama = $request->nama;
+        // $destinationPath = public_path('uploads/' . date('Y') . '/' . date('m') . '/');
+        // $gambar = $request->file('gambar');
+        // $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
+        // $gambar->move($destinationPath, $gambar_name);
 
-        $destinationPath = public_path('uploads/' . date('Y') . '/' . date('m') . '/');
-        $gambar = $request->file('gambar');
-        $gambar_name = 'uploads/' . date('Y') . '/' . date('m') . '/' . Str::random(10) . '.' . $gambar->getClientOriginalExtension();
-        $gambar->move($destinationPath, $gambar_name);
-        $galery->gambar = $gambar_name;
+        // $file = $request->file('gambar');
+        // $ext = $file->getClientOriginalExtension();
+        // $filename = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME));
+        // // $filesize = $file->getClientSize() / 1024;
+        // $file_path = 'uploads/' . date('Y-m');
+
+        // //Create Directory Monthly
+        // Storage::makeDirectory($file_path);
+
+        // $filename = Str::slug($filename, '_') . '.' . $ext;
+
+        // $filename = Str::slug($filename, '_') . '.' . $ext;
+        // Storage::disk('public' . $file_path, $file, $filename);        dd(UploadGambar::simpan($request->file('gambar')));
+        $galery->gambar = UploadGambar::simpan($request->file('gambar'));
+
         $tgl = Carbon::now('Asia/Jakarta');
         $galery->tgl = self::tgl($tgl);
         $galery->status = 1;
@@ -125,7 +141,7 @@ class GaleryController extends Controller
     public function destroy($id)
     {
         $galery = Galery::find($id);
-        $img1 = public_path($galery->gambar);
+        $img1 = storage_path($galery->gambar);
         if (File::exists($img1)) {
             File::delete($img1);
         }

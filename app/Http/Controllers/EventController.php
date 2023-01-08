@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ChartTahun;
+use App\Models\Event;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ChartTahunController extends Controller
+class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +42,10 @@ class ChartTahunController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\ChartTahun  $chartTahun
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(ChartTahun $chartTahun)
+    public function show(Event $event)
     {
         //
     }
@@ -52,10 +53,10 @@ class ChartTahunController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ChartTahun  $chartTahun
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(ChartTahun $chartTahun)
+    public function edit(Event $event)
     {
         //
     }
@@ -64,10 +65,10 @@ class ChartTahunController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ChartTahun  $chartTahun
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ChartTahun $chartTahun)
+    public function update(Request $request, Event $event)
     {
         //
     }
@@ -75,10 +76,10 @@ class ChartTahunController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ChartTahun  $chartTahun
+     * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ChartTahun $chartTahun)
+    public function destroy(Event $event)
     {
         //
     }
