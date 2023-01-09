@@ -1,8 +1,6 @@
 @extends('dashboard.layout.main')
 @section('content')
 <div class="page-content">
-
-    <!--start breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">Forms</div>
         <div class="ps-3">
@@ -29,9 +27,6 @@
             </div>
         </div>
     </div>
-    <!--end breadcrumb-->
-
-
     <div class="row">
         <div class="col-xl-12 mx-auto">
 
@@ -74,13 +69,8 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
-
-
 </div>
 @endsection
 @push('js')

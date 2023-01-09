@@ -17,10 +17,15 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\FrontController;
 
-use Inertia\Inertia;
-
-Route::get('/', [FrontController::class, 'index']);
+Route::get('/', [FrontController::class, 'indexWisata']);
 Route::get('/wisata/{nama}', [FrontController::class, 'getWisata']);
+Route::get('/products', [FrontController::class, 'indexProduct']);
+Route::get('/product/{nama}', [FrontController::class, 'getProduct']);
+Route::get('/contact-us', [FrontController::class, 'indexContactUs']);
+Route::get('/events', [FrontController::class, 'indexEvent']);
+// Route::get('single-post-slider', function() {
+//     return Inertia::render('Pages/Single-Post-Slider/Index');
+// });
 // Route::get('/', function () {
 //     return view('frontend/index');
 // });

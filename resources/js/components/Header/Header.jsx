@@ -32,8 +32,11 @@ const Header = () => {
                     <div className="container">
                         <div className="row holder">
                             <div className="col-xs-3 col-sm-2">
-                                <div className="logo"><a href="home.html"><Card.Img src={logo2} alt="dot" /></a></div>
-                                <Link href='/contact-us' >Contact Us</Link>
+                                <div className="logo"><Link href='/'><Card.Img src={logo2} alt="dot" /></Link></div>
+                                <Link href='/' >Home</Link><br />
+                                <Link href='/contact-us' >Contact Us</Link><br />
+                                <Link href='/products' >Products</Link><br />
+                                <Link href='/events' >Events</Link>
                             </div>
                             <div className="col-xs-9 col-sm-10 nav-holder">
                                 <nav id="nav" className="navbar navbar-default">

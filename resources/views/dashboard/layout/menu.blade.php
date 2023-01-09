@@ -10,7 +10,6 @@
             <ion-icon name="menu-sharp"></ion-icon>
         </div>
     </div>
-    <!--navigation-->
     <ul class="metismenu" id="menu">
 
         <li> <a href="{{url('/admin')}}">
@@ -30,11 +29,7 @@
             </a>
         </li>
     </ul>
-    <!--end navigation-->
 </aside>
-<!--end sidebar -->
-
-<!--start top header-->
 <header class="top-header">
     <nav class="navbar navbar-expand gap-3">
         <div class="mobile-menu-button">

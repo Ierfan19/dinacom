@@ -1,114 +1,115 @@
-$(function() {
-
-   
-
-
-// chart1
+$(function () {
 
 
 
 
+    // chart1
 
-// chart2
-var ctx = document.getElementById('chart2').getContext('2d');
 
-var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
+
+
+
+    // chart2
+    var p = document.getElementById('chart2');
+    var ctx = p.getContext('2d');
+
+    var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
     gradientStroke1.addColorStop(0, '#005bea');
     gradientStroke1.addColorStop(1, '#00c6fb');
 
-var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke2.addColorStop(0, '#ff6a00');  
-    gradientStroke2.addColorStop(1, '#ee0979'); 
+    var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientStroke2.addColorStop(0, '#ff6a00');
+    gradientStroke2.addColorStop(1, '#ee0979');
 
-var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke3.addColorStop(0, '#17ad37');  
-    gradientStroke3.addColorStop(1, '#98ec2d'); 
+    var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientStroke3.addColorStop(0, '#17ad37');
+    gradientStroke3.addColorStop(1, '#98ec2d');
 
-var gradientStroke4 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke4.addColorStop(0, '#7928ca');  
-    gradientStroke4.addColorStop(1, '#ff0080'); 
+    var gradientStroke4 = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientStroke4.addColorStop(0, '#7928ca');
+    gradientStroke4.addColorStop(1, '#ff0080');
 
-var gradientStroke5 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke5.addColorStop(0, '#f7971e');  
-    gradientStroke5.addColorStop(1, '#ffd200'); 
+    var gradientStroke5 = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientStroke5.addColorStop(0, '#f7971e');
+    gradientStroke5.addColorStop(1, '#ffd200');
 
-var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ['Electronics', 'Furniture', 'Fashion', 'Accessories', 'Mobiles'],
-        datasets: [{
-            data: [155, 120, 110, 150, 90],
-            backgroundColor: [
-                gradientStroke1,
-                gradientStroke2,
-                gradientStroke3,
-                gradientStroke4,
-                gradientStroke5,
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        maintainAspectRatio: false,
-        cutout: 105,
-        plugins: {
-        legend: {
-            display: false,
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Electronics', 'Furniture', 'Fashion', 'Accessories', 'Mobiles'],
+            datasets: [{
+                data: [155, 120, 110, 150, 90],
+                backgroundColor: [
+                    gradientStroke1,
+                    gradientStroke2,
+                    gradientStroke3,
+                    gradientStroke4,
+                    gradientStroke5,
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            cutout: 105,
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+
         }
-    }
-        
-    }
-});
+    });
 
 
 
 
 
-// chart3
-var ctx = document.getElementById('chart3').getContext('2d');
+    // chart3
+    var ctx = document.getElementById('chart3').getContext('2d');
 
-var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
+    var gradientStroke1 = ctx.createLinearGradient(0, 0, 0, 300);
     gradientStroke1.addColorStop(0, '#005bea');
     gradientStroke1.addColorStop(1, '#00c6fb');
 
-var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke2.addColorStop(0, '#ff6a00');  
-    gradientStroke2.addColorStop(1, '#ee0979'); 
+    var gradientStroke2 = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientStroke2.addColorStop(0, '#ff6a00');
+    gradientStroke2.addColorStop(1, '#ee0979');
 
-var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
-    gradientStroke3.addColorStop(0, '#17ad37');  
-    gradientStroke3.addColorStop(1, '#98ec2d'); 
+    var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
+    gradientStroke3.addColorStop(0, '#17ad37');
+    gradientStroke3.addColorStop(1, '#98ec2d');
 
-var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ['Desktop', 'Mobile', 'Tablet'],
-        datasets: [{
-            data: [155, 120, 110],
-            backgroundColor: [
-                gradientStroke1,
-                gradientStroke2,
-                gradientStroke3,
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        maintainAspectRatio: false,
-        cutout: 105,
-        plugins: {
-        legend: {
-            display: false,
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Desktop', 'Mobile', 'Tablet'],
+            datasets: [{
+                data: [155, 120, 110],
+                backgroundColor: [
+                    gradientStroke1,
+                    gradientStroke2,
+                    gradientStroke3,
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            maintainAspectRatio: false,
+            cutout: 105,
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+
         }
-    }
-        
-    }
-});
+    });
 
 
 
 
 
-      
-    
+
+
 });

@@ -9,7 +9,6 @@ import InstagramSlider from './child-main-content/InstagramSlider';
 import BodyFooter from './child-main-content/BodyFooter';
 
 const main = ({ wisata }) => {
-    console.log(wisata)
     return (
         <>
             <div className="version-ii">
@@ -17,11 +16,11 @@ const main = ({ wisata }) => {
                     <div className="w1">
                         <Header />
                         <main id="main" role="main">
-                            <PostsSlider />
+                            <PostsSlider wisata={wisata} />
                             <div id="twocolumns" className="container" >
                                 <Posts wisata={wisata} />
                             </div>
-                            <InstagramSlider />
+                            <InstagramSlider wisata={wisata} />
                         </main>
                         <BodyFooter />
                         <Footer />

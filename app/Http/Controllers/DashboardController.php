@@ -11,6 +11,8 @@ use App\Models\Viewer;
 use Illuminate\Foundation\Auth\User;
 use App\Models\Wisata;
 use Symfony\Component\HttpFoundation\Response;
+use DB;
+use Inertia\Inertia;
 
 class DashboardController extends Controller
 {
@@ -25,7 +27,11 @@ class DashboardController extends Controller
         $data['wisata'] = Wisata::count();
         $data['user'] = User::count();
         $data['tahun'] = ChartTahun::first();
-        return view('dashboard.index', $data);
+        $data['user_login'] = DB::table('users')->where('id', Auth()->User()->id)->first();
+
+        // return view('dashboard.index', $data);
+        return Inertia::render('Dashboard/Admin/Index', $data);
+
     }
     function chartviewer()
     {

@@ -8,40 +8,20 @@ import img35 from '../../../../../public/images/img35.jpg'
 import img36 from '../../../../../public/images/img36.jpg'
 import { Card } from 'react-bootstrap'
 
-const InstagramSlider = () => {
+const InstagramSlider = ({ wisata }) => {
     return (
         <>
             <div className="instagram-slider version-ii container-fluid">
                 <div className="row">
                     <div className="mask">
                         <div className="slideset">
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img30} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img31} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img35} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img32} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img33} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img36} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img34} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img30} alt="image description" /></a>
-                            </div>
-                            <div className="slide">
-                                <a href="#"><Card.Img src={img31} alt="image description" /></a>
-                            </div>
+                            {
+                                wisata.map((value, i) => {
+                                    return <div className="slide" key={i}>
+                                        <Card.Img src={value.gambar} alt={value.nama} />
+                                    </div>
+                                })
+                            }
                         </div>
                     </div>
                 </div>

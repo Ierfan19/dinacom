@@ -2,8 +2,6 @@
 @section('content')
 
 <div class="page-content">
-
-    <!--start breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">Dashboard</div>
         <div class="ps-3">
@@ -20,11 +18,7 @@
         <div class="ms-auto">
         </div>
     </div>
-    <!--end breadcrumb-->
-
-
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 row-cols-xxl-3">
-        
         <div class="col">
             <div class="card radius-10">
               <div class="card-body">

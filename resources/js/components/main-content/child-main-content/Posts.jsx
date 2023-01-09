@@ -27,39 +27,19 @@ const Posts = ({ wisata }) => {
                             </fieldset>
                         </form>
                     </div>
-                    <section className="widget profile-widget version-ii hidden-lg hidden-md">
-                        <div className="profile-pic">
-                            <a href="#">
-                                <Card.Img src={img11} alt="John Aston" />
-                            </a>
-                        </div>
-                        <h3>
-                            <a href="#">
-                                <Card.Img src={textJhonAston} alt="jhon aston" />
-                            </a>
-                        </h3>
-                        <p>Hi, I am John Aston. Duis autem vel eum dolor in hendrerit in vulputate velit esse mole consequat, vel illum dolore eu feugiat nulla lisis at vero eros et accumsan et iusto.</p>
-                        <ul className="social-networks">
-                            <li><a href="#"><span className="icon ico-facebook"></span></a></li>
-                            <li><a href="#"><span className="icon ico-twitter"></span></a></li>
-                            <li><a href="#"><span className="icon ico-google-plus"></span></a></li>
-                            <li><a href="#"><span className="icon ico-linkedin"></span></a></li>
-                            <li><a href="#"><span className="icon ico-pinterest"></span></a></li>
-                        </ul>
-                    </section>
                     <section className="posts-blocks">
                         {
                             wisata.map((value, i) => {
                                 return <article className="post-block wow fadeInUp" data-wow-delay="0.6s" key={i}>
                                     <div className="post-holder">
-                                        <Link href={'/wisata/' + value.nama_wisata} >
+                                        <Link href={'/wisata/' + value.nama} >
                                             <div className="img-holder">
-                                                <a href="single-post.html"><Card.Img src={value.gambar} alt="image description" /></a>
+                                                <Card.Img src={value.gambar} alt={value.nama} />
                                             </div>
                                             <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                                            <h2><a href="single-post.html">{value.nama_wisata}</a></h2>
+                                            <h2>{value.nama}</h2>
                                             <p>{value.deskripsi}</p>
-                                            <a href="single-post.html" className="read-more">Read more</a>
+                                            <p className="read-more">Read more</p>
                                         </Link>
                                         <footer>
                                             <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
@@ -69,83 +49,6 @@ const Posts = ({ wisata }) => {
                                 </article>
                             })
                         }
-
-                        {/* <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
-                            <div className="post-holder">
-                                <div className="img-holder">
-                                    <a href="single-post.html"><Card.Img src={img23} alt="image description" /></a>
-                                </div>
-                                <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                                <h2><a href="single-post.html">Traveling is awesome <br />if you can enjoy.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscin elit, sed diam nonummy nibh euismod tincidunt...</p>
-                                <a href="single-post.html" className="read-more">Read more</a>
-                                <footer>
-                                    <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
-                                    <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
-                                </footer>
-                            </div>
-                        </article>
-                        <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
-                            <div className="post-holder">
-                                <div className="video-holder">
-                                    <a href="https://player.vimeo.com/video/133306855" className="ico-play lightbox fancybox.iframe"></a>
-                                    <Card.Img src={img70} alt="image description" />
-                                </div>
-                                <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                                <h2><a href="single-post.html">I get up in the morning looking for adventure.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscin elit, sed diam nonummy nibh euismod tincidunt...</p>
-                                <a href="single-post.html" className="read-more">Read more</a>
-                                <footer>
-                                    <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
-                                    <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
-                                </footer>
-                            </div>
-                        </article>
-                        <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
-                            <div className="post-holder">
-                                <div className="img-holder">
-                                    <a href="single-post.html"><Card.Img src={img69} alt="image description" /></a>
-                                </div>
-                                <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                                <h2><a href="single-post.html">Traveling is awesome <br />if you can enjoy.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscin elit, sed diam nonummy nibh euismod tincidunt...</p>
-                                <a href="single-post.html" className="read-more">Read more</a>
-                                <footer>
-                                    <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
-                                    <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
-                                </footer>
-                            </div>
-                        </article>
-                        <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
-                            <div className="post-holder">
-                                <div className="img-holder">
-                                    <a href="single-post.html"><Card.Img src={img25} alt="image description" /></a>
-                                </div>
-                                <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                                <h2><a href="single-post.html">I get up in the morning looking for adventure.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscin elit, sed diam nonummy nibh euismod tincidunt...</p>
-                                <a href="single-post.html" className="read-more">Read more</a>
-                                <footer>
-                                    <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
-                                    <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
-                                </footer>
-                            </div>
-                        </article>
-                        <article className="post-block wow fadeInUp" data-wow-delay="0.6s">
-                            <div className="post-holder">
-                                <div className="img-holder">
-                                    <a href="single-post.html"><Card.Img src={img26} alt="image description" /></a>
-                                </div>
-                                <time dateTime="2011-01-12"><a href="#">25th May - Travel</a></time>
-                                <h2><a href="single-post.html">Traveling is awesome <br />if you can enjoy.</a></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscin elit, sed diam nonummy nibh euismod tincidunt...</p>
-                                <a href="single-post.html" className="read-more">Read more</a>
-                                <footer>
-                                    <strong className="text comment-count"><span className="icon ico-comment"></span><a href="#">25 comments</a></strong>
-                                    <strong className="text share-count"><span className="icon ico-share"></span><a href="#">138 shares</a></strong>
-                                </footer>
-                            </div>
-                        </article> */}
                     </section>
                     <nav role="navigation" className="navigation pagination">
                         <div className="nav-links">

@@ -281,6 +281,20 @@ h6 a,
 	transition: all .3s ease-in-out;
 }
 
+/* Swiper Style */
+/* .container-swiper {
+	width: 100%;
+	height: 100%;
+} */
+
+.container-swiper .mySwiper {
+	width: 100%;
+}
+
+.container-swiper .mySwiper .swiper-slide .swiper-img {
+	filter: saturate(140%);
+}
+
 .post-block time a,
 .post-block time a:before,
 .post-block .ico-play,
@@ -3733,7 +3747,6 @@ aside.version-ii .subscribe-form .form-control:focus {
 	background-image: url('../images/img68.jpg');
 	background-size: cover;
 	background-position: 50% 50%;
-	min-height: 383px;
 }
 
 .posts-slider .mask {
@@ -3741,7 +3754,6 @@ aside.version-ii .subscribe-form .form-control:focus {
 	white-space: nowrap;
 	text-align: center;
 	font-family: empty;
-	max-width: 280px;
 	margin: 0 auto;
 }
 

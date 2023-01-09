@@ -1,21 +1,18 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
-import img57 from '../../../../../public/images/img57.jpg'
-import img54 from '../../../../../public/images/img54.jpg'
-import img55 from '../../../../../public/images/img55.jpg'
-import img71 from '../../../../../public/images/img71.jpg'
-import img56 from '../../../../../public/images/img56.jpg'
-import img58 from '../../../../../public/images/img58.jpg'
-import img30 from '../../../../../public/images/img30.jpg'
-import img31 from '../../../../../public/images/img31.jpg'
-import img32 from '../../../../../public/images/img32.jpg'
-import img33 from '../../../../../public/images/img33.jpg'
-import img34 from '../../../../../public/images/img34.jpg'
-import img35 from '../../../../../public/images/img35.jpg'
-import img36 from '../../../../../public/images/img36.jpg'
-import Header from '../../Header/Header'
-import BodyFooter from '../../main-content/child-main-content/BodyFooter'
-import Footer from '../../Footer/Footer'
+import img57 from '../../../../../../public/images/img57.jpg'
+import img54 from '../../../../../../public/images/img54.jpg'
+import img55 from '../../../../../../public/images/img55.jpg'
+import img71 from '../../../../../../public/images/img71.jpg'
+import img56 from '../../../../../../public/images/img56.jpg'
+import img58 from '../../../../../../public/images/img58.jpg'
+import img30 from '../../../../../../public/images/img30.jpg'
+import img31 from '../../../../../../public/images/img31.jpg'
+import img32 from '../../../../../../public/images/img32.jpg'
+import img33 from '../../../../../../public/images/img33.jpg'
+import Header from '../../../Header/Header'
+import BodyFooter from '../../../main-content/child-main-content/BodyFooter'
+import Footer from '../../../Footer/Footer'
 import { Navigation, EffectFade, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/bundle'
@@ -24,7 +21,7 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/autoplay'
 
-const Index = ({ singleWisata }) => {
+const Index = ({ product }) => {
 	return (
 		<>
 
@@ -38,11 +35,11 @@ const Index = ({ singleWisata }) => {
 									<div className="post-block single-post wow fadeInUp" data-wow-delay="0.4s">
 										<div className="post-holder">
 											<div className="img-holder">
-												<Card.Img src={singleWisata.gambar} alt="image description" />
+												<Card.Img src={product.gambar} alt="image description" />
 											</div>
 											<time datetime="2011-01-12"><a href="#">25th May - Travel</a></time>
-											<h2>{singleWisata.nama}</h2>
-											<p>{singleWisata.deskripsi}</p>
+											<h2>{product.nama}</h2>
+											<p>{product.deskripsi}</p>
 											{/* <blockquote>
 												<p>Habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Anvesti nes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam dynamicus, qui sequitur mutationem</p>
 											</blockquote> */}
@@ -103,12 +100,12 @@ const Index = ({ singleWisata }) => {
 									<div className='container-swiper justify-content-center mb-5'>
 										<Swiper
 											modules={[Navigation, EffectFade, Autoplay]}
+											navigation
 											effect
 											speed={800}
 											slidesPerView={3}
 											spaceBetween={40}
 											loop
-											grabCursor
 											className='mySwiper'
 											autoplay={{
 												delay: 2500,
@@ -116,7 +113,7 @@ const Index = ({ singleWisata }) => {
 											}}
 										>
 											<SwiperSlide className='swiper-slide' >
-												<Card.Img src={img30} className='swiper-img' />
+												<Card.Img src={img30} />
 											</SwiperSlide>
 											<SwiperSlide className='swiper-slide' >
 												<Card.Img src={img31} />
@@ -213,41 +210,6 @@ const Index = ({ singleWisata }) => {
 										</form>
 									</section>
 								</article>
-							</div>
-						</div>
-						<div className="instagram-slider version-ii container-fluid">
-							<div className="row">
-								<div className="mask">
-									<div className="slideset">
-										<div className="slide">
-											<a href="#"><Card.Img src={img30} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img31} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img35} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img32} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img33} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img36} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img34} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img30} alt="image description" /></a>
-										</div>
-										<div className="slide">
-											<a href="#"><Card.Img src={img31} alt="image description" /></a>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</main>
