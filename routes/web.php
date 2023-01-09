@@ -59,10 +59,15 @@ Route::group(['middleware' => ['auth', 'can:user_role']], function () {
     Route::get('/user/produk', [DashuserController::class , 'produk']);
     Route::get('/user/produk/tambah', [DashuserController::class , 'tambahproduk']);
     Route::get('/user/produk/edit/{id}', [DashuserController::class , 'editproduk'])->name('user.produk.edit');
+    Route::get('/user/produk/slide/{id}', [DashuserController::class , 'slideproduk'])->name('user.produk.slide');
     Route::get('/user/produk/hapus/{id}', [DashuserController::class , 'hapusproduk']);
     Route::post('/user/produk/store', [DashuserController::class , 'storeproduk']);
     Route::post('/user/produk/update', [DashuserController::class , 'updateproduk']);
     Route::get('/user/profile', [DashuserController::class , 'profile']);
+    Route::get('/user/slideproduk/tambah/{id}', [DashuserController::class , 'tambahslideproduk']);
+    Route::get('/user/slideproduk/hapus/{id}', [DashuserController::class , 'hapusslideproduk']);
+    Route::post('/user/slideproduk/store', [DashuserController::class , 'storeslideproduk']);
+    Route::post('/user/slideproduk/hapus', [DashuserController::class , 'hapuslideproduk']);
     Route::post('/user/profile/edit', [DashuserController::class , 'editprofile']);
 });
 
@@ -135,6 +140,13 @@ Route::group(['middleware' => ['auth', 'role:admin']], function () {
     Route::get('/admin/about/edit/{id}', [AboutController::class , 'edit']);
     Route::get('/category-update', [CategoryController::class , 'updateEn']);
     Route::get('/Produk-update', [ProdukController::class , 'updateEn']);
+
+
+    Route::get('/admin/wisata/slidewisata/{id}', [WisataController::class , 'slidewisata']);
+    Route::get('/admin/wisata/slidewisata/tambah/{id}', [WisataController::class , 'tambahslidewisata']);
+    Route::get('/admin/wisata/slidewisata/hapus/{id}', [WisataController::class , 'hapusslidewisata']);
+    Route::post('/admin/wisata/slidewisata/store', [WisataController::class , 'storeslidewisata']);
+    Route::post('/admin/wisata/slidewisata/hapus', [WisataController::class , 'hapuslidewisata']);
 });
 
 
@@ -143,6 +155,7 @@ Route::group(['middleware' => ['auth', 'role:pengurus_wisata']], function () {
     Route::get('/user/event', [EventController::class , 'index']);
     Route::get('/user/event/tambah', [EventController::class , 'create']);
     Route::get('/user/event/edit/{id}', [EventController::class , 'edit']);
+    Route::get('/user/event/hapus/{id}', [EventController::class , 'destroy']);
     Route::post('/user/event/store', [EventController::class , 'store']);
     Route::post('/user/event/update', [EventController::class , 'update']);
 });

@@ -46,10 +46,13 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+
+        $parseit = date("d F Y", strtotime($request->tgl));
+
         $event = new Event();
         $event->nama = $request->nama;
         $event->keterangan = $request->keterangan;
-        $event->tgl = $request->tgl;
+        $event->tgl = $parseit;
         $event->wisata_id = $request->wisata_id;
         $event->tgl_end = $request->tgl;
         $event->gambar = UploadGambar::simpan($request->file('gambar'));
@@ -90,10 +93,13 @@ class EventController extends Controller
      */
     public function update(Request $request)
     {
+
+        $parseit = date("d F Y", strtotime($request->tgl));
+
         $event = Event::find($request->id);
         $event->nama = $request->nama;
         $event->keterangan = $request->keterangan;
-        $event->tgl = $request->tgl;
+        $event->tgl = $parseit;
         $event->wisata_id = $request->wisata_id;
         $event->tgl_end = $request->tgl;
         if ($request->file('gambar')) {
@@ -110,8 +116,12 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy($id)
     {
-    //
+
+        $event = Event::find($id);
+        $img1 = UploadGambar::hapus($event->gambar);
+        $event->delete();
+        return redirect()->back();
     }
 }

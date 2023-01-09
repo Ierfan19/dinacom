@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Helper\UploadGambar;
+use App\Models\Assets;
 
 class ProdukController extends Controller
 {
@@ -106,6 +107,11 @@ class ProdukController extends Controller
     {
         $produk = Produk::find($id);
         $img1 = UploadGambar::hapus($produk->gambar);
+        $slide = Assets::where('produk_id', $id)->get();
+        foreach ($slide as $row) {
+            $img2 = UploadGambar::hapus($row->nama);
+        }
+        $slide->delete();
         $produk->delete();
 
         return redirect('admin/produk');

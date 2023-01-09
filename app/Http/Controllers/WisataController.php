@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\File;
 use App\Helper\UploadGambar;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Assets;
 
 class WisataController extends Controller
 {
@@ -148,5 +149,47 @@ class WisataController extends Controller
         $wisata->delete();
 
         return redirect('admin/wisata');
+    }
+    function slidewisata($id)
+    {
+
+        $wisata = Wisata::find($id);
+        // if ($wisata->user_id == Auth()->User()->id) {
+
+        //     $slide = Assets::where('wisata_id', $wisata->id)->get();
+        //     $data['slide'] = $slide;
+        //     $data['wisata'] = $wisata;
+        //     return view('dashboard/wisata/slide', $data);
+        // }
+
+        $slide = Assets::where('wisata_id', $wisata->id)->get();
+        $data['slide'] = $slide;
+        $data['wisata'] = $wisata;
+        return view('dashboard/wisata/slide', $data);
+    }
+    function tambahslidewisata($id)
+    {
+        $data['wisata'] = Wisata::find($id);
+        return view('dashboard.wisata.tambahslide', $data);
+    }
+    function storeslidewisata(Request $request)
+    {
+        $slide = new Assets();
+        $slide->nama = UploadGambar::simpan($request->file('gambar'));
+        $slide->status = 1;
+        $slide->wisata_id = $request->id;
+        $slide->save();
+        return redirect()->back();
+    }
+    function hapusslidewisata($id)
+    {
+        $slide = Assets::find($id);
+        $wisata = Wisata::find($slide->wisata_id);
+        // if ($wisata->user_id != Auth()->User()->id) {
+        //     return 'Kesalahan';
+        // }
+        $img1 = UploadGambar::hapus($slide->nama);
+        $slide->delete();
+        return redirect()->back();
     }
 }

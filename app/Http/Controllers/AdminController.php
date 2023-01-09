@@ -102,9 +102,16 @@ class AdminController extends Controller
             User::find($request->id)->assignRole($role->name);
         }
         else {
+            $permissionexist = Permission::where('name', 'user_role')->exists();
+            if ($permissionexist) {
+                $permission = Permission::where('name', 'user_role')->first();
+                User::find($request->id)->assignRole($role->name)->givePermissionTo($permission);
+            }
+            else {
 
-            $permission = Permission::create(['name' => 'user_role']);
-            User::find($request->id)->assignRole($role->name)->givePermissionTo($permission);
+                $permission = Permission::create(['name' => 'user_role']);
+                User::find($request->id)->assignRole($role->name)->givePermissionTo($permission);
+            }
         }
         return redirect('admin/user');
 

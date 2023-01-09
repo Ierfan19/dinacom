@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\Helper\UploadGambar;
+use App\Models\Assets;
 
 class DashuserController extends Controller
 {
@@ -73,6 +74,44 @@ class DashuserController extends Controller
         $produk->save();
         return redirect('user/produk');
     }
+    function slideproduk($id)
+    {
+
+        $id = Crypt::decrypt($id);
+        $produk = Produk::find($id);
+        if ($produk->user_id == Auth()->User()->id) {
+
+            $slide = Assets::where('produk_id', $produk->id)->get();
+            $data['slide'] = $slide;
+            $data['produk'] = $produk;
+            return view('user/produk/slide', $data);
+        }
+    }
+    function tambahslideproduk($id)
+    {
+        $data['produk'] = Produk::find($id);
+        return view('user.produk.tambahslide', $data);
+    }
+    function storeslideproduk(Request $request)
+    {
+        $slide = new Assets();
+        $slide->nama = UploadGambar::simpan($request->file('gambar'));
+        $slide->status = 1;
+        $slide->produk_id = $request->id;
+        $slide->save();
+        return redirect()->back();
+    }
+    function hapusslideproduk($id)
+    {
+        $slide = Assets::find($id);
+        $produk = Produk::find($slide->produk_id);
+        if ($produk->user_id != Auth()->User()->id) {
+            return 'Kesalahan';
+        }
+        $img1 = UploadGambar::hapus($slide->nama);
+        $slide->delete();
+        return redirect()->back();
+    }
     function hapusproduk($id)
     {
 
@@ -81,6 +120,11 @@ class DashuserController extends Controller
             return 'Kesalahan';
         }
         $img1 = UploadGambar::hapus($produk->gambar);
+        $slide = Assets::where('produk_id', $id)->get();
+        foreach ($slide as $row) {
+            $img2 = UploadGambar::hapus($row->nama);
+        }
+        $slide->delete();
         $produk->delete();
 
         return redirect('user/produk');
