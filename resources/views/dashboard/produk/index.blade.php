@@ -2,6 +2,8 @@
 @section('content')
 
 <div class="page-content">
+
+    <!--start breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">Tables</div>
         <div class="ps-3">
@@ -18,6 +20,9 @@
         <div class="ms-auto">
         </div>
     </div>
+    <!--end breadcrumb-->
+
+
     <div class="row">
         <div class="col-xl-12 mx-auto">
             <h6 class="mb-0 text-uppercase">Produk</h6>
@@ -48,8 +53,11 @@
                 </div>
                 </form>
             </div>
+
         </div>
     </div>
+
+
     <div class="card radius-10">
         <div class="card-body">
             <div class="d-flex align-items-center">
@@ -122,12 +130,15 @@
                         @endforeach
                     </tbody>
                 </table>
+                
                 <nav class="d-flex justify-content-between mt-4" aria-label="Page navigation">
+
                     {{$produk->links()}}
                 </nav>
             </div>
         </div>
     </div>
+
 </div>
 <div class="modal fade" id="produk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

@@ -2,6 +2,8 @@
 @section('content')
 
 <div class="page-content">
+
+    <!--start breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="breadcrumb-title pe-3">eCommerce</div>
         <div class="ps-3">
@@ -28,6 +30,9 @@
             </div>
         </div>
     </div>
+    <!--end breadcrumb-->
+
+    <!--start shop area-->
     <section class="shop-page">
         <div class="shop-container">
             <div class="card shadow-sm border-0">
@@ -133,18 +138,27 @@
                                     </div>
                                 </div>
                                 @endforeach
+
+
                             </div>
                             <hr>
                             <nav class="d-flex justify-content-between" aria-label="Page navigation">
+
                                 {{$wisata->links()}}
                             </nav>
                         </div>
                     </div>
                 </div>
+                <!--end row-->
             </div>
         </div>
-    </section>
 </div>
+</section>
+<!--end shop area-->
+
+</div>
+<!-- Button trigger modal -->
+<!-- Modal -->
 <div class="modal fade" id="wisata" tabindex="-1" aria-labelledby="wisataLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

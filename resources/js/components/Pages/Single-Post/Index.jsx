@@ -28,7 +28,7 @@ const Index = ({ singleWisata }) => {
 	return (
 		<>
 
-			<div id="wrapper">
+			<div id="wrapper mt-5">
 				<div className="w1">
 					<Header />
 					<main id="main" role="main">
@@ -38,7 +38,7 @@ const Index = ({ singleWisata }) => {
 									<div className="post-block single-post wow fadeInUp" data-wow-delay="0.4s">
 										<div className="post-holder">
 											<div className="img-holder">
-												<Card.Img src={singleWisata.gambar} alt="image description" />
+												<Card.Img src={`localhost:8000/${singleWisata.gambar}`} alt="image description" />
 											</div>
 											<time datetime="2011-01-12"><a href="#">25th May - Travel</a></time>
 											<h2>{singleWisata.nama}</h2>

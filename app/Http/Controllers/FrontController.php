@@ -15,6 +15,7 @@ class FrontController extends Controller
     function indexWisata()
     {
         $data['wisata'] = Wisata::limit(10)->get();
+        $data['galleries'] = DB::table('galery')->get();
         return Inertia::render('Index', $data);
     }
 

@@ -33,8 +33,7 @@ class WisataController extends Controller
                 ->orwhere('alamat', 'like', '%' . $cari . '%')
                 ->paginate($paginate);
         }
-
-        return Inertia::render('Dashboard/Admin/Content/Wisata/Index', $data);
+        return view('dashboard.wisata.index', $data);
     }
 
     /**
@@ -91,7 +90,7 @@ class WisataController extends Controller
     public function edit($id)
     {
         $data['wisata'] = Wisata::find($id);
-        return Inertia::render('Dashboard/Admin/Content/Wisata/Edit', $data);
+        return view('dashboard/wisata/edit', $data);
     }
 
     /**

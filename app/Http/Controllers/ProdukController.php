@@ -6,7 +6,6 @@ use App\Models\Produk;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Inertia\Inertia;
 
 class ProdukController extends Controller
 {
@@ -33,8 +32,7 @@ class ProdukController extends Controller
                 ->orwhere('alamat', 'like', '%' . $cari . '%')
                 ->paginate($paginate);
         }
-        return Inertia::render('Dashboard/Admin/Content/Produk/Index', $data);
-        // return view('dashboard/produk/index', $data);
+        return view('dashboard/produk/index', $data);
     }
 
     /**

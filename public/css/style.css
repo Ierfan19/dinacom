@@ -3746,7 +3746,7 @@ aside.version-ii .subscribe-form .form-control:focus {
 	margin: 0 0 30px;
 	background-image: url('../images/img68.jpg');
 	background-size: cover;
-	background-position: 50% 50%;
+	/* background-position: 50% 50%; */
 }
 
 .posts-slider .mask {

@@ -8,10 +8,11 @@ import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/autoplay'
 
-const PostsSlider = ({ wisata }) => {
+const PostsSlider = ({ galleries }) => {
+    console.log(galleries)
     return (
         <>
-            <div className='container'>
+            <div className='container mt-5'>
                 <div className='container-swiper justify-content-center mb-5'>
                     <Swiper
                         modules={[Navigation, EffectFade, Autoplay]}
@@ -29,12 +30,9 @@ const PostsSlider = ({ wisata }) => {
                     >
 
                         {
-                            wisata.map((value, i) => {
+                            galleries.map((value, i) => {
                                 return <SwiperSlide className='swiper-slide' >
                                     <Card.Img src={value.gambar} className='swiper-img' />
-                                    <h2><a href="single-post.html">{value.nama}</a></h2>
-                                    <time dateTime="2011-01-12"><a href="#">2nd january, 2016</a></time>
-                                    <a href="single-post.html" className="read-more">Continue Reading</a>
                                 </SwiperSlide>
                             })
                         }

@@ -8350,10 +8350,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Index = function Index(_ref) {
-  var wisata = _ref.wisata;
+  var wisata = _ref.wisata,
+    galleries = _ref.galleries;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_main_content_main__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      wisata: wisata
+      wisata: wisata,
+      galleries: galleries
     })
   });
 };
@@ -10622,7 +10624,7 @@ var Index = function Index(_ref) {
   var singleWisata = _ref.singleWisata;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
-      id: "wrapper",
+      id: "wrapper mt-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("div", {
         className: "w1",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(_Header_Header__WEBPACK_IMPORTED_MODULE_14__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsxs)("main", {
@@ -10643,7 +10645,7 @@ var Index = function Index(_ref) {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("div", {
                       className: "img-holder",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_25__["default"].Img, {
-                        src: singleWisata.gambar,
+                        src: "localhost:8000/".concat(singleWisata.gambar),
                         alt: "image description"
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_24__.jsx)("time", {
@@ -12024,12 +12026,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var PostsSlider = function PostsSlider(_ref) {
-  var wisata = _ref.wisata;
+  var galleries = _ref.galleries;
+  console.log(galleries);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-      className: "container",
+      className: "container mt-5",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "container-swiper justify-content-center mb-5",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_2__.Swiper, {
@@ -12045,28 +12047,13 @@ var PostsSlider = function PostsSlider(_ref) {
             delay: 2500,
             disableOnInteraction: false
           },
-          children: wisata.map(function (value, i) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(swiper_react__WEBPACK_IMPORTED_MODULE_2__.SwiperSlide, {
+          children: galleries.map(function (value, i) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(swiper_react__WEBPACK_IMPORTED_MODULE_2__.SwiperSlide, {
               className: "swiper-slide",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Img, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_bootstrap__WEBPACK_IMPORTED_MODULE_9__["default"].Img, {
                 src: value.gambar,
                 className: "swiper-img"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h2", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                  href: "single-post.html",
-                  children: value.nama
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("time", {
-                dateTime: "2011-01-12",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                  href: "#",
-                  children: "2nd january, 2016"
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
-                href: "single-post.html",
-                className: "read-more",
-                children: "Continue Reading"
-              })]
+              })
             });
           })
         })
@@ -12112,7 +12099,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var main = function main(_ref) {
-  var wisata = _ref.wisata;
+  var wisata = _ref.wisata,
+    galleries = _ref.galleries;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       className: "version-ii",
@@ -12124,15 +12112,13 @@ var main = function main(_ref) {
             id: "main",
             role: "main",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_child_main_content_PostsSlider__WEBPACK_IMPORTED_MODULE_4__["default"], {
-              wisata: wisata
+              galleries: galleries
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               id: "twocolumns",
               className: "container",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_child_main_content_Posts__WEBPACK_IMPORTED_MODULE_5__["default"], {
                 wisata: wisata
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_child_main_content_InstagramSlider__WEBPACK_IMPORTED_MODULE_6__["default"], {
-              wisata: wisata
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_child_main_content_BodyFooter__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
             id: "back-top",
