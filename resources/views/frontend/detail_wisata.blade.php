@@ -45,7 +45,7 @@
         <div class="w1">
             <!-- header of the page -->
             <header id="header" class="version-ii">
-                <div class="container">
+                <div class="container tes">
                 </div>
                 <div class="stick-holder">
                     <div class="container">
