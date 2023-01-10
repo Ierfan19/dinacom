@@ -100,6 +100,7 @@ class ViewerController extends Controller
         $wisata = Wisata::find($id);
         $wisata->viewer = Viewer::where('wisata_id', $id)->count();
         $wisata->update();
+        return 'ok';
     }
     function viewerproduk($id, Request $request)
     {

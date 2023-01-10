@@ -16,7 +16,7 @@ class ChartTahunSeeder extends Seeder
     {
 
         ChartTahun::create([
-            'tahun' => 2022
+            'tahun' => 2023
         ]);
     }
 }

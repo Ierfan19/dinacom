@@ -108,9 +108,9 @@
                                             <div
                                                 class="d-flex align-items-center justify-content-end gap-3 position-absolute end-0 top-0 m-3">
                                                 <!-- <a href="javascript:;">
-                                                                                    <div class="product-wishlist"> <i class="bx bx-heart"></i>
-                                                                                    </div>
-                                                                                </a> -->
+                                                                                        <div class="product-wishlist"> <i class="bx bx-heart"></i>
+                                                                                        </div>
+                                                                                    </a> -->
                                             </div>
                                             <div class="row g-0">
                                                 <div class="col-md-4">
@@ -133,8 +133,8 @@
                                                             <p class="card-text">{{ $row->nama }}.</p>
                                                             <div class="d-flex align-items-center">
                                                                 <!-- <div class="mb-1 product-price"> <span class="me-1 text-decoration-line-through">$99.00</span>
-                                                                                                    <span class="fs-5">$49.00</span>
-                                                                                                </div> -->
+                                                                                                        <span class="fs-5">$49.00</span>
+                                                                                                    </div> -->
                                                             </div>
                                                             <div class="product-action mt-2">
                                                                 <div class="d-flex gap-2">

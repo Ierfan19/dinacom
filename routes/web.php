@@ -18,34 +18,22 @@ use App\Http\Controllers\ProdukController;
 
 use Inertia\Inertia;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FrontController;
 
-Route::get('/', function () {
-    return Inertia::render('Index');
-});
+// Route::get('/', function () {
+//     return Inertia::render('Index');
+// });
 /* |-------------------------------------------------------------------------- | Web Routes |-------------------------------------------------------------------------- | | Here is where you can register web routes for your application. These | routes are loaded by the RouteServiceProvider within a group which | contains the "web" middleware group. Now create something great! | */
 
 // Route::get('/', function () {
 //     return view('frontend/index');
 // });
-Route::get('/user', function () {
-    return view('user/index');
-});
-Route::get('/sales', function () {
-    return view('frontend/home2');
-});
-Route::get('/table', function () {
-    return view('dashboard/table');
-});
-// Route::get('/admin', function () {
-//     return view('dashboard/index');
-// });
-// Route::get('/admin2', function () {
-//     return view('dashboard/index2');
-// });
-// Route::get('/admin3', function () {
-//     return view('dashboard/index3');
-// });
 
+Route::get('/', [FrontController::class , 'index']);
+Route::get('/wisata', [FrontController::class , 'wisata']);
+Route::get('/wisata/{nama}', [FrontController::class , 'detailwisata']);
+Route::get('/produk', [FrontController::class , 'produk']);
+Route::get('/produk/{nama}', [FrontController::class , 'detailproduk']);
 Auth::routes();
 
 Route::get('/update-viewer-produk/{id}', [ViewerController::class , 'viewerproduk']);
@@ -56,20 +44,24 @@ Route::get('/chart-viewer-user', [DashboardController::class , 'chartvieweruser'
 Route::get('/home', [App\Http\Controllers\HomeController::class , 'index'])->name('home');
 
 Route::group(['middleware' => ['auth', 'can:user_role']], function () {
-    Route::get('/user/produk', [DashuserController::class , 'produk']);
-    Route::get('/user/produk/tambah', [DashuserController::class , 'tambahproduk']);
-    Route::get('/user/produk/edit/{id}', [DashuserController::class , 'editproduk'])->name('user.produk.edit');
-    Route::get('/user/produk/slide/{id}', [DashuserController::class , 'slideproduk'])->name('user.produk.slide');
-    Route::get('/user/produk/hapus/{id}', [DashuserController::class , 'hapusproduk']);
-    Route::post('/user/produk/store', [DashuserController::class , 'storeproduk']);
-    Route::post('/user/produk/update', [DashuserController::class , 'updateproduk']);
-    Route::get('/user/profile', [DashuserController::class , 'profile']);
-    Route::get('/user/slideproduk/tambah/{id}', [DashuserController::class , 'tambahslideproduk']);
-    Route::get('/user/slideproduk/hapus/{id}', [DashuserController::class , 'hapusslideproduk']);
-    Route::post('/user/slideproduk/store', [DashuserController::class , 'storeslideproduk']);
-    Route::post('/user/slideproduk/hapus', [DashuserController::class , 'hapuslideproduk']);
-    Route::post('/user/profile/edit', [DashuserController::class , 'editprofile']);
-});
+    Route::get('/user', function () {
+            return view('user/index');
+        }
+        );
+        Route::get('/user/produk', [DashuserController::class , 'produk']);
+        Route::get('/user/produk/tambah', [DashuserController::class , 'tambahproduk']);
+        Route::get('/user/produk/edit/{id}', [DashuserController::class , 'editproduk'])->name('user.produk.edit');
+        Route::get('/user/produk/slide/{id}', [DashuserController::class , 'slideproduk'])->name('user.produk.slide');
+        Route::get('/user/produk/hapus/{id}', [DashuserController::class , 'hapusproduk']);
+        Route::post('/user/produk/store', [DashuserController::class , 'storeproduk']);
+        Route::post('/user/produk/update', [DashuserController::class , 'updateproduk']);
+        Route::get('/user/profile', [DashuserController::class , 'profile']);
+        Route::get('/user/slideproduk/tambah/{id}', [DashuserController::class , 'tambahslideproduk']);
+        Route::get('/user/slideproduk/hapus/{id}', [DashuserController::class , 'hapusslideproduk']);
+        Route::post('/user/slideproduk/store', [DashuserController::class , 'storeslideproduk']);
+        Route::post('/user/slideproduk/hapus', [DashuserController::class , 'hapuslideproduk']);
+        Route::post('/user/profile/edit', [DashuserController::class , 'editprofile']);
+    });
 
 Route::get('/admin', [DashboardController::class , 'index'])->middleware('auth');
 
